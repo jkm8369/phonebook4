@@ -21,19 +21,19 @@
 		<%-- <form action="/pbook3/pbc"  method="get"> --> ${pageContext.request.contextPath} --%>
 		<form action="${pageContext.request.contextPath}/write"  method="get">
 			<label>이름(name)</label>
-			<input type="text" name="name" value="">
+			<input type="text" name="name" value="${param.name}">
 			<br>
 		
 			<label>핸드폰(hp)</label>
-			<input type="text" name="hp" value="">
+			<input type="text" name="hp" value="${param.hp}">
 			<br>
 	
 			<label>회사(company)</label>
-			<input type="text" name="company" value="">
+			<input type="text" name="company" value="${param.company}">
 			<br>
 			
 			
-			<button>등록</button>
+			<button type= "submit">등록</button>
 		</form>
 	</body>
 	

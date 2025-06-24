@@ -35,12 +35,12 @@
 					<tr>	
 					<tr>
 						<td>
-							<a href="http://localhost:8888/phonebook4/mform&personId=${personVO.personId}">
+							<a href="${pageContext.request.contextPath}/mform?no=${phonebookVO.personId}">
 								[수정폼으로 이동]
 							</a>		
 						</td>
 						<td>
-							<a href="${pageContext.request.contextPath}/delete&no=${phonebookVO.personId}">
+							<a href="${pageContext.request.contextPath}/delete?no=${phonebookVO.personId}">
 								[삭제] ${phonebookVO.personId}
 							</a>
 						</td>   <!-- 원래 버튼으로 해야된다 js필요 안배워서 a 태그로 구현 -->

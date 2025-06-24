@@ -62,16 +62,41 @@ public class PhonebookController {
 	
 	@RequestMapping(value= "/delete", method= {RequestMethod.GET, RequestMethod.POST})
 	public String delete(@RequestParam(value="no")int no) {
-		System.out.println("PhonebookController.delete()");
+		//System.out.println("PhonebookController.delete()");
 		
-		System.out.println(no);
+		//System.out.println(no);
 		
 		PhonebookDAO phonebookDAO = new PhonebookDAO();
 		phonebookDAO.phonebookDelete(no);
 		
 		
 		
-		return "redirect/list";
+		return "redirect:/list";
+	}
+	
+	@RequestMapping(value ="/mform", method = {RequestMethod.GET, RequestMethod.POST})
+	public String mform(@RequestParam("no") int no, Model model) {
+		//System.out.println("PhonebookController.mform()");
+		
+		PhonebookDAO phonebookDAO = new PhonebookDAO();
+		PhonebookVO phonebookVO = phonebookDAO.personSelectOne(no);
+		
+		model.addAttribute("pbVO", phonebookVO);
+		
+		
+		return "modifyForm";
+	}
+	
+	@RequestMapping(value="/modify", method= {RequestMethod.GET, RequestMethod.POST})
+	public String modify(@ModelAttribute PhonebookVO phonebookVO) {
+		//System.out.println("PhonebookController.modify()");
+		
+		//System.out.println(phonebookVO);
+		
+		PhonebookDAO phonebookDAO = new PhonebookDAO();
+		phonebookDAO.personUpdate(phonebookVO);
+	
+		return "redirect:/list";
 	}
 	
 	
